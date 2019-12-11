@@ -1,14 +1,15 @@
 class Johnny {
-  constructor(ctx) {
+  constructor(ctx, canvasWidth) {
     this.ctx = ctx;
+    this.canvasWidth = canvasWidth;
 
     this.width = 58;
     this.height = 38;
     this.x = 350;
-    this.y = 200;
+    this.y = this.canvasWidth / 2 - this.width / 2;
 
     this.image = new Image();
-    this.image.src = "./img/SkyDiver.png";
+    this.image.src = "./img/skydiver.png";
 
     this.frames = 3;
     this.framesIndex = 0;
@@ -18,18 +19,27 @@ class Johnny {
     this.setListener();
   }
 
-  draw() {
+  draw(framesCounter) {
     this.ctx.drawImage(
       this.image,
       this.framesIndex * Math.floor(this.image.width / this.frames),
       0,
       Math.floor(this.image.width / this.frames),
       this.image.height,
-      this.x,
-      this.y,
+      this.posX,
+      this.posY,
       this.width,
       this.height
     );
+    this.animate(framesCounter);
+  }
+
+  animate(framesCounter) {
+    if (framesCounter % 10 === 0) {
+      this.framesIndex++;
+
+      if (this.framesIndex > 2) this.framesIndex = 0;
+    }
   }
 
   setListener() {

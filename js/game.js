@@ -11,7 +11,7 @@ class GameCanvas {
       this.canvasHeight
     );
 
-    this.johnny = new Johnny(this.ctx, this.canvasHeight);
+    this.johnny = new Johnny(this.ctx);
 
     this.obstaclesCreated = [];
 
@@ -19,8 +19,9 @@ class GameCanvas {
     this.framesCounter = 0;
     this.score = 0;
   }
-  draw() {
+  drawAll() {
     this.background.draw();
+    this.johnny.draw(this.framesCounter);
     // this.johnny.draw(this.framesCounter);
   }
 
@@ -28,12 +29,17 @@ class GameCanvas {
     this.interval = setInterval(() => {
       this.framesCounter++;
 
-      this.draw();
+      this.clear();
+      this.drawAll();
 
       this.framesCounter =
         this.framesCounter > 1000
           ? (this.framesCounter = 0)
           : this.framesCounter;
     }, 1000 / this.fps);
+  }
+
+  clear() {
+    this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
   }
 }
