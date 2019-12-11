@@ -13,6 +13,9 @@ class Johnny {
 
     this.frames = 3;
     this.framesIndex = 0;
+    this.vx = 40;
+
+    this.birds = [];
 
     this.hasGameStarted = false;
 
