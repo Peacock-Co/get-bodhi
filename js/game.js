@@ -11,7 +11,7 @@ class GameCanvas {
       this.canvasHeight
     );
 
-    this.johnny = new Johnny(this.ctx);
+    this.johnny = new Johnny(this.ctx, this.canvasHeight);
 
     this.obstaclesCreated = [];
 
@@ -19,10 +19,11 @@ class GameCanvas {
     this.framesCounter = 0;
     this.score = 0;
   }
-  drawAll() {
+
+  draw() {
     this.background.draw();
+
     this.johnny.draw(this.framesCounter);
-    // this.johnny.draw(this.framesCounter);
   }
 
   redenring() {
@@ -30,7 +31,7 @@ class GameCanvas {
       this.framesCounter++;
 
       this.clear();
-      this.drawAll();
+      this.draw();
 
       this.framesCounter =
         this.framesCounter > 1000
