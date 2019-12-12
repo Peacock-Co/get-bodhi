@@ -14,7 +14,10 @@ class Johnny {
     this.frames = 3;
     this.framesIndex = 0;
 
+    this.vx = 40; //velocidad de movimiento
     this.hasGameStarted = false;
+    this.moveLeft = 37;
+    this.moveRight = 39;
     this.setListener();
   }
 
@@ -35,20 +38,27 @@ class Johnny {
   setListener() {
     document.addEventListener(
       "keydown",
-      function moveRight(e) {
-        if (e.keyCode === 39) {
-          if (!this.hasGameStarted) this.hasGameStarted = true;
-          this.x += this.x;
-          console.log("Right");
-        }
-      }.bind(this)
-    );
-    document.addEventListener(
-      "keydown",
-      function moveLeft(e) {
-        if (e.keyCode === 37) {
-          this.x += this.x;
-          console.log("Left");
+      function move(e) {
+        e.preventDefault();
+
+        /* switch(e.keyCode) {                        // movimiento en x del arbolito
+               case izq: this.x -= this.vx;
+               break;
+               case drch: this.x += this.vx;
+               break;*/
+        switch (e.keyCode) {
+          case this.moveLeft:
+            if (this.x - this.vx >= 0) {
+              this.x -= this.vx;
+            }
+            break;
+
+          case moveRight:
+            if (this.x + this.vx + this.width <= this.game.canvas.width) {
+              //movimiento drch y le restas ls px de la figura
+              this.x += this.vx;
+            }
+            break;
         }
       }.bind(this)
     );
