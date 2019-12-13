@@ -20,12 +20,6 @@ class GameCanvas {
     this.score = 0;
   }
 
-  drawAll() {
-    this.background.draw();
-
-    this.johnny.draw(this.framesCounter);
-  }
-
   redenring() {
     this.interval = setInterval(() => {
       this.framesCounter++;
@@ -41,11 +35,17 @@ class GameCanvas {
     }, 1000 / this.fps);
   }
 
-  moveAll() {
-    this.background.move();
-  }
-
   clear() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+  }
+
+  drawAll() {
+    this.background.draw();
+
+    this.johnny.draw(this.framesCounter);
+  }
+
+  moveAll() {
+    this.background.move();
   }
 }

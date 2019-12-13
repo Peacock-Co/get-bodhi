@@ -23,8 +23,8 @@ class Background {
     ),
       this.ctx.drawImage(
         this.image,
-        this.posX + this.width,
         this.posX,
+        this.posY + this.height,
         this.height,
         this.width
       );
@@ -33,6 +33,6 @@ class Background {
   move() {
     this.posY -= this.vx;
 
-    if (this.posY <= -this.height) this.posY = 700;
+    if (this.posY <= -this.height) this.posY = 0;
   }
 }
