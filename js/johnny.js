@@ -14,7 +14,7 @@ class Johnny {
     this.frames = 3;
     this.framesIndex = 0;
 
-    this.vx = 40; //velocidad de movimiento
+    this.vx = 30; //velocidad de movimiento
     this.hasGameStarted = false;
     this.moveLeft = 37;
     this.moveRight = 39;
@@ -50,13 +50,15 @@ class Johnny {
           case this.moveLeft:
             if (this.x - this.vx >= 0) {
               this.x -= this.vx;
+              console.log("Right");
             }
             break;
 
-          case moveRight:
-            if (this.x + this.vx + this.width <= this.game.canvas.width) {
+          case this.moveRight:
+            if (this.x + this.vx >= 0) {
               //movimiento drch y le restas ls px de la figura
               this.x += this.vx;
+              console.log("Left");
             }
             break;
         }

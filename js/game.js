@@ -20,7 +20,7 @@ class GameCanvas {
     this.score = 0;
   }
 
-  draw() {
+  drawAll() {
     this.background.draw();
 
     this.johnny.draw(this.framesCounter);
@@ -31,13 +31,18 @@ class GameCanvas {
       this.framesCounter++;
 
       this.clear();
-      this.draw();
+      this.drawAll();
+      this.moveAll();
 
       this.framesCounter =
         this.framesCounter > 1000
           ? (this.framesCounter = 0)
           : this.framesCounter;
     }, 1000 / this.fps);
+  }
+
+  moveAll() {
+    this.background.move();
   }
 
   clear() {
