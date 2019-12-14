@@ -48,14 +48,14 @@ class Johnny {
                break;*/
         switch (e.keyCode) {
           case this.moveLeft:
-            if (this.x - this.vx >= 0) {
+            if (this.x - this.vx >= -20) {
               this.x -= this.vx;
               console.log("Right");
             }
             break;
 
           case this.moveRight:
-            if (this.x + this.vx <= 700) {
+            if (this.x + this.vx <= 654) {
               //movimiento drch y le restas ls px de la figura
               this.x += this.vx;
               console.log("Left");

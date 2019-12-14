@@ -20,6 +20,7 @@ class GameCanvas {
     this.score = 0;
     this.time = 99;
     this.birds = [];
+    this.intervalId;
   }
 
   redenring() {
@@ -31,7 +32,7 @@ class GameCanvas {
       this.moveAll();
       this.moveBirds();
 
-      if (this.counter % 60 == 0) {
+      if (this.framesCounter % 60 == 0) {
         //velocidad de la aparición de pajaros
         this.time--;
         this.generateBird();
