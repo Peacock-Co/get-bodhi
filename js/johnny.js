@@ -55,7 +55,7 @@ class Johnny {
             break;
 
           case this.moveRight:
-            if (this.x + this.vx >= 0) {
+            if (this.x + this.vx <= 700) {
               //movimiento drch y le restas ls px de la figura
               this.x += this.vx;
               console.log("Left");
