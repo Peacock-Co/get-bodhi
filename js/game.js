@@ -15,6 +15,8 @@ class GameCanvas {
 
     this.birds = new Birds(this.ctx, this.canvasWidth);
 
+    this.scoreboard = new Scoreboard(this.ctx, this.canvasHeight);
+
     this.fps = 60;
     this.framesCounter = 0;
     this.score = 3;
@@ -47,6 +49,22 @@ class GameCanvas {
         (this.framesCounter = 0) :
         this.framesCounter;
     }, 1000 / this.fps);
+  }
+
+  drawAll() {
+    this.background.draw();
+
+    this.scoreboard.draw(this.score);
+
+    this.johnny.draw(this.framesCounter);
+
+    this.birds.forEach(function (e) {
+      e.drawBirds();
+    });
+  }
+
+  moveAll() {
+    this.background.move();
   }
 
   checkCollision(arrayColision, value) {
@@ -85,21 +103,6 @@ class GameCanvas {
     );
   }
 
-  drawAll() {
-    this.background.draw();
-
-    this.scoreboard.draw();
-
-    this.johnny.draw(this.framesCounter);
-
-    this.birds.forEach(function (e) {
-      e.drawBirds();
-    });
-  }
-
-  moveAll() {
-    this.background.move();
-  }
 
   moveBirds() {
     //Array de los pajaros

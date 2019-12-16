@@ -1,5 +1,5 @@
 class Scoreboard {
-  constructor() {
+  constructor(ctx, score) {
     this.ctx = ctx;
     this.score = score;
   }
@@ -7,6 +7,6 @@ class Scoreboard {
   draw(score) {
     this.ctx.fillStyle = "black"
     this.ctx.font = '40px sans-serif'
-    this.ctx.fillText(score, 650, 650)
+    this.ctx.fillText(score, 650, 50)
   }
 }
