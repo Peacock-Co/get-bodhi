@@ -17,14 +17,14 @@ class GameCanvas {
 
     this.fps = 60;
     this.framesCounter = 0;
-    this.score = 0;
+    this.score = 3;
     this.time = 3;
     this.birds = [];
     this.counter = 0;
     this.intervalId;
   }
 
-  redenring() {
+  rendenring() {
     this.interval = setInterval(() => {
       this.framesCounter++;
 
@@ -32,24 +32,21 @@ class GameCanvas {
       this.moveAll();
       this.moveBirds();
 
-      this.stop();
-      //if (this.checkCollision()) this.gameOver();
+      this.gameOver(); // if (this.checkCollision()) this.gameOver();
 
       if (this.framesCounter % 60 == 0) {
         //velocidad de la aparición de pajaros
-        this.time--;
+        this.time++;
         this.generateBird();
       }
+
       this.checkCollision(this.birds, "bird");
       this.clearBird();
 
-      //this.clearBirds(); //lo nombras para que te haga caso limpiar
-      //if (this.isCollision()) this.gameOver();
-
       this.framesCounter =
-        this.framesCounter > 1000
-          ? (this.framesCounter = 0)
-          : this.framesCounter;
+        this.framesCounter > 1000 ?
+        (this.framesCounter = 0) :
+        this.framesCounter;
     }, 1000 / this.fps);
   }
 
@@ -59,11 +56,11 @@ class GameCanvas {
       if (value == "bird") {
         this.time -= 1; //resta -1 la vida
         this.johnny.framesCounter = 1;
-        this.stop();
       }
     }
+
     setTimeout(
-      function() {
+      function () {
         //reciba la segunda imagen y le aplica el tiempo en cambiar
         this.johnny.framesCounter = 0;
       }.bind(this),
@@ -75,7 +72,7 @@ class GameCanvas {
     //pinta las colisiones
     // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
     return arrayCollision.some(
-      function(birds) {
+      function (birds) {
         var collision =
           this.johnny.x + this.johnny.width >= birds.x &&
           this.johnny.x <= birds.x + birds.width &&
@@ -83,7 +80,7 @@ class GameCanvas {
           birds.y + birds.height >= this.johnny.y;
         if (collision) {
           birds.hit = true;
-          this.score++;
+          this.score--;
           console.log(this.score);
         }
         return collision;
@@ -96,7 +93,7 @@ class GameCanvas {
 
     this.johnny.draw(this.framesCounter);
 
-    this.birds.forEach(function(e) {
+    this.birds.forEach(function (e) {
       e.drawBirds();
     });
   }
@@ -108,7 +105,7 @@ class GameCanvas {
   moveBirds() {
     //Array de los pajaros
     this.birds.forEach(
-      function(e) {
+      function (e) {
         e.moveBirds();
       }.bind(this)
     );
@@ -120,7 +117,7 @@ class GameCanvas {
 
   clearBird() {
     this.birds = this.birds.filter(
-      function(birds) {
+      function (birds) {
         return birds.y < this.canvasHeight, this.canvasWidth && !birds.hit;
       }.bind(this)
     );
@@ -130,13 +127,10 @@ class GameCanvas {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
   }
 
-  stop() {
-    if (this.time <= 0) {
-      clearInterval(this.intervalId);
-    }
-  }
 
   gameOver() {
-    clearInterval(this.interval);
+    if (this.score === 0) {
+      clearInterval(this.interval);
+    }
   }
 }
