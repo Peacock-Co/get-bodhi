@@ -18,7 +18,6 @@ class GameCanvas {
     this.fps = 60;
     this.framesCounter = 0;
     this.score = 3;
-    this.time = 3;
     this.birds = [];
     this.counter = 0;
     this.intervalId;
@@ -54,11 +53,9 @@ class GameCanvas {
     if (this.isCollision(arrayColision)) {
       //añadir todo lo que quieras que pase cuando haga colision
       if (value == "bird") {
-        this.time -= 1; //resta -1 la vida
         this.johnny.framesCounter = 1;
       }
     }
-
     setTimeout(
       function () {
         //reciba la segunda imagen y le aplica el tiempo en cambiar
@@ -90,6 +87,8 @@ class GameCanvas {
 
   drawAll() {
     this.background.draw();
+
+    this.scoreboard.draw();
 
     this.johnny.draw(this.framesCounter);
 
