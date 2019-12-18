@@ -18,6 +18,8 @@ class Johnny {
     this.hasGameStarted = false;
     this.moveLeft = 37;
     this.moveRight = 39;
+    this.moveUp = 38;
+    this.moveDown = 40;
     this.setListener();
   }
 
@@ -59,6 +61,22 @@ class Johnny {
               //movimiento drch y le restas ls px de la figura
               this.x += this.vx;
               console.log("Left");
+            }
+            break;
+
+          case this.moveUp:
+            if (this.y + this.vx <= 654) {
+              //movimiento drch y le restas ls px de la figura
+              this.y -= this.vx;
+              console.log("Up");
+            }
+            break;
+
+          case this.moveDown:
+            if (this.y + this.vx <= 654) {
+              //movimiento drch y le restas ls px de la figura
+              this.y += this.vx;
+              console.log("Down");
             }
             break;
         }

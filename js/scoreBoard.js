@@ -6,7 +6,7 @@ class Scoreboard {
 
   draw(score) {
     this.ctx.fillStyle = "black"
-    this.ctx.font = '40px sans-serif'
-    this.ctx.fillText(score, 650, 50)
+    this.ctx.font = '50px sans-serif'
+    this.ctx.fillText(score, 640, 60)
   }
 }
