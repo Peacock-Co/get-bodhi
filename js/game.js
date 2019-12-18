@@ -12,6 +12,7 @@ class GameCanvas {
     );
 
     this.johnny = new Johnny(this.ctx, this.canvasHeight);
+    this.bodhi = new Bodhi(this.ctx, this.canvasHeight);
 
     this.birds = new Birds(this.ctx, this.canvasWidth);
 
@@ -37,7 +38,6 @@ class GameCanvas {
 
       if (this.framesCounter % 60 == 0) {
         //velocidad de la aparición de pajaros
-        this.time++;
         this.generateBird();
       }
 
@@ -57,6 +57,7 @@ class GameCanvas {
     this.scoreboard.draw(this.score);
 
     this.johnny.draw(this.framesCounter);
+    this.bodhi.draw(this.framesCounter);
 
     this.birds.forEach(function (e) {
       e.drawBirds();

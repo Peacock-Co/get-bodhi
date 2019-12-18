@@ -8,6 +8,7 @@ class Johnny {
     this.x = 325;
     this.y = this.canvasHeight / 2 - this.height / 2;
 
+
     this.image = new Image();
     this.image.src = "./img/skydiver.png";
 
@@ -23,7 +24,7 @@ class Johnny {
     this.setListener();
   }
 
-  draw(frameCounter) {
+  draw() {
     this.ctx.drawImage(
       this.image,
       this.framesIndex * Math.floor(this.image.width / this.frames),
