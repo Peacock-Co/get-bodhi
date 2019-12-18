@@ -65,7 +65,7 @@ class Johnny {
             break;
 
           case this.moveUp:
-            if (this.y + this.vx <= 654) {
+            if (this.y + this.vx <= 700) {
               //movimiento drch y le restas ls px de la figura
               this.y -= this.vx;
               console.log("Up");
@@ -73,7 +73,7 @@ class Johnny {
             break;
 
           case this.moveDown:
-            if (this.y + this.vx <= 654) {
+            if (this.y + this.vx <= 680) {
               //movimiento drch y le restas ls px de la figura
               this.y += this.vx;
               console.log("Down");

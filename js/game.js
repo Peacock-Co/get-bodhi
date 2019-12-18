@@ -132,7 +132,6 @@ class GameCanvas {
 
   gameOver() {
     if (this.score === 0) {
-
       clearInterval(this.interval);
     }
   }

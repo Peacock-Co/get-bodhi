@@ -5,3 +5,27 @@ body {
   justify-content: center;
   background-color: rgb(218, 214, 210);
 }
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  /* background: url('../img/johnny.jpeg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 400px;
+  border-radius: 10px;
+  border-style: solid 3px;
+}
+
+.left {
+  /* background: url('../img/bodhi.jpeg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 400px;
+  border-radius: 10px;
+}
