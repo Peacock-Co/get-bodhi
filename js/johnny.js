@@ -1,16 +1,15 @@
 class Johnny {
-  constructor(ctx, canvasHeight) {
+  constructor(ctx) {
     this.ctx = ctx;
-    this.canvasHeight = canvasHeight;
 
     this.width = 68;
     this.height = 48;
     this.x = 325;
-    this.y = this.canvasHeight / 2 - this.height / 2;
+    this.y = 325;
 
 
-    this.image = new Image();
-    this.image.src = "./img/skydiver.png";
+    this.image = new Image(150, 35);
+    this.image.src = "./img/johnny.png";
 
     this.frames = 3;
     this.framesIndex = 0;

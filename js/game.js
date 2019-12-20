@@ -56,12 +56,12 @@ class GameCanvas {
 
     this.scoreboard.draw(this.score);
 
-    this.johnny.draw(this.framesCounter);
+    this.johnny.draw();
     this.bodhi.draw(this.framesCounter);
 
     this.birds.forEach(function (e) {
-      e.drawBirds();
-    });
+      e.drawBirds(this.framesCounter);
+    }.bind(this));
   }
 
   moveAll() {
@@ -115,7 +115,7 @@ class GameCanvas {
   }
 
   generateBird() {
-    this.birds.push(new Birds(this)); //dibuja el array vacio this.birds[]
+    this.birds.push(new Birds(this.ctx)); //dibuja el array vacio this.birds[]
   }
 
   clearBird() {

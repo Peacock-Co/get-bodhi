@@ -3,7 +3,10 @@ body {
   margin: 0;
   padding: 0;
   justify-content: center;
-  background-color: rgb(218, 214, 210);
+  background-color: rgb(177, 180, 180);
+  font-family: 'Press Start 2P',
+    cursive;
+
 }
 
 .main {
@@ -12,7 +15,8 @@ body {
 }
 
 .right {
-  /* background: url('../img/johnny.jpeg'); */
+  background-image: linear-gradient(to right bottom, #3f3e61c5, #818285e8),
+    url('../img/johnny.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;
@@ -22,7 +26,8 @@ body {
 }
 
 .left {
-  /* background: url('../img/bodhi.jpeg'); */
+  background-image: linear-gradient(to right bottom, #3f3e61c5, #818285e8),
+    url('../img/bodhi.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;

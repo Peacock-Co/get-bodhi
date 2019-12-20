@@ -8,7 +8,7 @@ class Bodhi {
     this.x = 200;
     this.y = this.canvasHeight / 2 - this.height / 2;
 
-    this.image = new Image();
+    this.image = new Image(150, 35);
     this.image.src = "./img/bodhi.png";
 
     this.frames = 3;
