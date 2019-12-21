@@ -5,4 +5,4 @@ Inspired on the 90ths movie, Point Break, with Keanu Reeves and Patrick Swayze. 
 
 The objetive of the game is to catch Bodhi dodging the birds and not die smashed on the floor!!.
 
-https://github.com/Peacock-Co/get-bodhi
+https://peacock-co.github.io/get-bodhi/
