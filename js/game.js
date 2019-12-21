@@ -57,7 +57,7 @@ class GameCanvas {
     this.scoreboard.draw(this.score);
 
     this.johnny.draw();
-    this.bodhi.draw(this.framesCounter);
+    this.bodhi.draw();
 
     this.birds.forEach(function (e) {
       e.drawBirds(this.framesCounter);

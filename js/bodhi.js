@@ -20,7 +20,7 @@ class Bodhi {
     this.hasGameStarted = false;
   }
 
-  draw(frameCounter) {
+  draw() {
     this.ctx.drawImage(
       this.image,
       this.framesIndex * Math.floor(this.image.width / this.frames),
