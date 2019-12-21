@@ -8,7 +8,7 @@ class Johnny {
     this.y = 325;
 
 
-    this.image = new Image(150, 35);
+    this.image = new Image(140, 35);
     this.image.src = "./img/johnny.png";
 
     this.frames = 3;
@@ -27,7 +27,7 @@ class Johnny {
     this.ctx.drawImage(
       this.image,
       this.framesIndex * Math.floor(this.image.width / this.frames),
-      0,
+      3,
       Math.floor(this.image.width / this.frames),
       this.image.height,
       this.x,

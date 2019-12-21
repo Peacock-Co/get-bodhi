@@ -1,5 +1,5 @@
 class Birds {
-  constructor(ctx, width, height) {
+  constructor(ctx) {
     this.img = new Image();
     this.img.src = "./img/birds.png";
     this.ctx = ctx;

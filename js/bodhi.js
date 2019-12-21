@@ -1,36 +1,39 @@
 class Bodhi {
-  constructor(ctx, canvasHeight) {
+  constructor(ctx) {
+    this.img = new Image();
+    this.img.src = "./img/bodhi.png";
     this.ctx = ctx;
-    this.canvasHeight = canvasHeight;
 
-    this.width = 68;
-    this.height = 48;
-    this.x = 200;
-    this.y = this.canvasHeight / 2 - this.height / 2;
+    this.x = 0;
+    this.y = 0;
+    this.width = 150;
+    this.height = 150;
 
-    this.image = new Image(150, 35);
-    this.image.src = "./img/bodhi.png";
+    this.x = Math.floor(Math.random() * (canvas.width - this.width));
+    this.y = this.height - -700;
 
-    this.frames = 3;
+    this.y0 = this.height * 0.6;
+    this.vx = 6;
+
     this.framesIndex = 0;
 
-    this.y0 = this.ctx.canvasHeight * 0.8;
-
-    this.vx = 30; //velocidad de movimiento
-    this.hasGameStarted = false;
   }
 
-  draw() {
+  drawBodhi() {
     this.ctx.drawImage(
-      this.image,
-      this.framesIndex * Math.floor(this.image.width / this.frames),
-      0,
-      Math.floor(this.image.width / this.frames),
-      this.image.height,
+      this.img,
+      this.framesIndex * Math.floor(this.img.width / this.frames),
+      100,
+      Math.floor(this.img.width / this.frames),
+      this.img.height,
       this.x,
       this.y,
       this.width,
       this.height
     );
+  }
+
+  moveBodhi() {
+    this.y -= 6; //velocidad de movimiento
   }
 }

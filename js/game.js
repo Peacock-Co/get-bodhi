@@ -12,7 +12,7 @@ class GameCanvas {
     );
 
     this.johnny = new Johnny(this.ctx, this.canvasHeight);
-    this.bodhi = new Bodhi(this.ctx, this.canvasHeight);
+    this.bodhi = new Bodhi(this.ctx, this.canvasWidth);
 
     this.birds = new Birds(this.ctx, this.canvasWidth);
 
@@ -22,6 +22,7 @@ class GameCanvas {
     this.framesCounter = 0;
     this.score = 3;
     this.birds = [];
+    this.bodhi = [];
     this.counter = 0;
     this.intervalId;
   }
@@ -33,16 +34,23 @@ class GameCanvas {
       this.drawAll();
       this.moveAll();
       this.moveBirds();
+      this.moveBodhi();
 
       this.gameOver(); // if (this.checkCollision()) this.gameOver();
 
       if (this.framesCounter % 60 == 0) {
         //velocidad de la aparición de pajaros
-        this.generateBird();
+        this.generateBird()
+      }
+
+      if (this.framesCounter % 60 == 0) {
+        //velocidad de la aparición de pajaros
+        this.generateBodhi()
       }
 
       this.checkCollision(this.birds, "bird");
       this.clearBird();
+      this.clearBodhi();
 
       this.framesCounter =
         this.framesCounter > 1000 ?
@@ -57,7 +65,10 @@ class GameCanvas {
     this.scoreboard.draw(this.score);
 
     this.johnny.draw();
-    this.bodhi.draw();
+
+    this.bodhi.forEach(function (e) {
+      e.drawBodhi(this.framesCounter);
+    }.bind(this));
 
     this.birds.forEach(function (e) {
       e.drawBirds(this.framesCounter);
@@ -114,14 +125,34 @@ class GameCanvas {
     );
   }
 
+  moveBodhi() {
+    this.bodhi.forEach(
+      function (e) {
+        e.moveBodhi();
+      }.bind(this)
+    );
+  }
+
   generateBird() {
     this.birds.push(new Birds(this.ctx)); //dibuja el array vacio this.birds[]
+  }
+
+  generateBodhi() {
+    this.bodhi.push(new Bodhi(this.ctx));
   }
 
   clearBird() {
     this.birds = this.birds.filter(
       function (birds) {
         return birds.y < this.canvasHeight, this.canvasWidth && !birds.hit;
+      }.bind(this)
+    );
+  }
+
+  clearBodhi() {
+    this.bodhi = this.bodhi.filter(
+      function (bodhi) {
+        return bodhi.y < this.canvasHeight, this.canvasWidth && !bodhi.hit;
       }.bind(this)
     );
   }
